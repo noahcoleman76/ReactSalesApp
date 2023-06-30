@@ -3,16 +3,13 @@ import ListOptions from "../data/Status";
 import trashIcon from "../images/icons8-trash-64.png"
 import Modal from "./NotesModal";
 
-// const jumpStartCompleted = [
-//   { id: "0", companyName: "Bob Sagget Inc", notes: "demoBooked" },
-//   { id: "1", companyName: "Noah Coleman Inc", notes: "demoBooked" },
-//   { id: "2", companyName: "O.C. Tanner", notes: "demoBooked" },
-//   { id: "3", companyName: "Bolt Motorcycle Hardware", notes: "demoBooked" }
-// ]
-// window.localStorage.setItem("jumpStartCompleted", JSON.stringify(jumpStartCompleted))
-
+const jumpStartCompleted = []
 const localStorageDataName = "jumpStartCompleted"
-const localStorageDataPull = JSON.parse(localStorage.getItem("jumpStartCompleted"))
+let localStorageDataPull = JSON.parse(localStorage.getItem("jumpStartCompleted"))
+if (localStorageDataPull == null) {
+  localStorage.setItem(localStorageDataName, JSON.stringify(jumpStartCompleted))
+  localStorageDataPull = JSON.parse(localStorage.getItem("jumpStartCompleted"))
+}
 
 const initialValues = {
   id: "",

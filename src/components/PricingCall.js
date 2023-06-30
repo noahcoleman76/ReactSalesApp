@@ -3,16 +3,13 @@ import ListOptions from "../data/Status";
 import trashIcon from "../images/icons8-trash-64.png"
 import Modal from "./NotesModal";
 
-// const pricingCall = [
-//   { id: "0", companyName: "Bob Sagget Inc", notes: "demoBooked" },
-//   { id: "1", companyName: "Noah Coleman Inc", notes: "demoBooked" },
-//   { id: "2", companyName: "O.C. Tanner", notes: "demoBooked" },
-//   { id: "3", companyName: "Bolt Motorcycle Hardware", notes: "demoBooked" }
-// ]
-// window.localStorage.setItem("pricingCall", JSON.stringify(pricingCall))
-
+const pricingCall = []
 const localStorageDataName = "pricingCall"
-const localStorageDataPull = JSON.parse(localStorage.getItem("pricingCall"))
+let localStorageDataPull = JSON.parse(localStorage.getItem("pricingCall"))
+if (localStorageDataPull == null) {
+  localStorage.setItem(localStorageDataName, JSON.stringify(pricingCall))
+  localStorageDataPull = JSON.parse(localStorage.getItem("pricingCall"))
+}
 
 const initialValues = {
   id: "",

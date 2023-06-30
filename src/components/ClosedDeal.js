@@ -3,16 +3,13 @@ import ListOptions from "../data/Status";
 import trashIcon from "../images/icons8-trash-64.png"
 import Modal from "./NotesModal";
 
-// const closedDeal = [
-//   { id: "0", companyName: "Bob Sagget Inc", notes: "demoBooked" },
-//   { id: "1", companyName: "Noah Coleman Inc", notes: "demoBooked" },
-//   { id: "2", companyName: "O.C. Tanner", notes: "demoBooked" },
-//   { id: "3", companyName: "Bolt Motorcycle Hardware", notes: "demoBooked" }
-// ]
-// window.localStorage.setItem("closedDeal", JSON.stringify(closedDeal))
-
+const closedDeal = []
 const localStorageDataName = "closedDeal"
-const localStorageDataPull = JSON.parse(localStorage.getItem("closedDeal"))
+let localStorageDataPull = JSON.parse(localStorage.getItem("closedDeal"))
+if (localStorageDataPull == null) {
+  localStorage.setItem(localStorageDataName, JSON.stringify(closedDeal))
+  localStorageDataPull = JSON.parse(localStorage.getItem("closedDeal"))
+}
 
 const initialValues = {
   id: "",
